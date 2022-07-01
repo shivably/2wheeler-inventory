@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Suppliers List
+{% endblock %}
+
+{% block content %}
+    <div class='container'>
+        <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">Name</th>
+                <th scope="col">Contact</th>
+                <th scope="col">Email</th>
+                <th scope="col">Address</th>
+              </tr>
+            </thead>
+            <tbody>
+                {% for supplier in suppliers %}
+                    <tr>
+                        <td>{{ supplier.name }}</td>
+                        <td>{{ supplier.contact }}</td>
+                        <td>{{ supplier.email }}</td>
+                        <td>{{ supplier.address }}</td>
+                        <td><a class='btn btn-dark' href={% url 'edit-supplier' supplier.name %}>Edit</a></td>
+                        <td><a class='btn btn-danger' href={% url 'delete-supplier' supplier.name %}>Delete</a></td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+          </table>
+    </div>
+
+{% endblock %}
