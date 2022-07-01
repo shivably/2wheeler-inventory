@@ -31,15 +31,28 @@
                     </li>
 
                  {% else %}
-                    <li>
-                        <a class="nav-link text-white" href=""></a>
-                    </li>
+                    {% comment %} <li>
+                        <a class="nav-link text-white" href="">Supplier</a>
+                    </li> {% endcomment %}
 
                     <div class="collapse navbar-collapse" id="navbarNavDarkDropdown">
                         <ul class="navbar-nav">
+                            <!-- Supplier -->
+                            <li class="nav-item dropdown ms-4">
+                                <a class="nav-link text-white dropdown-toggle" href="#" id="navbarDarkDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">Supplier</a>
+                                <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink">
+                                    <li>
+                                        <a class="dropdown-item" href="{% url 'add-supplier' %}">Add supplier</a>
+                                    </li>
+                                    <li>
+                                        <a class="dropdown-item" href="{% url 'suppliers-list' %}">Suppliers list</a>
+                                    </li>
+                                </ul>
+                            </li>
+                            
+                            <!-- Logout -->
                             <li class="nav-item dropdown">
                                 <a class="nav-link text-white dropdown-toggle" href="#" id="navbarDarkDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">{{user.username|capfirst}}</a>
-
                                 <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink">
                                     <li>
                                         <a class="dropdown-item" href="{% url 'logout' %}">Logout</a>

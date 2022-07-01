@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+
+{% block title %}
+    {% if name %}
+        Edit {{ name }}
+    {% else %}
+        Add supplier
+    {% endif %}
+{% endblock %}
+
+{% block content %}
+    <div class='container'>
+        {% csrf_token %}
+        {% crispy form %}
+        {% comment %} <a class="btn btn-dark" href="">Cancel</a> {% endcomment %}
+    </div>
+
+{% endblock %}
