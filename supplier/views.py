@@ -46,8 +46,14 @@ def edit_supplier(request, name):
             print(form.errors)
             return HttpResponseRedirect(reverse('suppliers-list'))
     else:
+        initial = {
+            'contact': model.contact,
+            'email': model.email,
+            'address': model.address,
+        }
+        form = SupplierEditForm(initial=initial)
         return render(request, 'supplier/add_supplier.html', {
-            'form': SupplierEditForm,
+            'form': form,
             'name': name
         })
 
