@@ -37,21 +37,34 @@
 
                     <div class="collapse navbar-collapse" id="navbarNavDarkDropdown">
                         <ul class="navbar-nav">
+                            <!-- Purchase -->
+                            <li class="nav-item dropdown me-4">
+                                <a class="nav-link text-white dropdown-toggle" href="#" id="navbarDarkDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">Purchase</a>
+                                <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink">
+                                    <li>
+                                        <a class="dropdown-item" href="{% url 'purchase-stock' %}">Purchase New Stock</a>
+                                    </li>
+                                    <li>
+                                        <a class="dropdown-item" href="{% url 'purchase-history' %}">Purchase History</a>
+                                    </li>
+                                </ul>
+                            </li>
+
                             <!-- Supplier -->
-                            <li class="nav-item dropdown ms-4">
+                            <li class="nav-item dropdown me-4">
                                 <a class="nav-link text-white dropdown-toggle" href="#" id="navbarDarkDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">Supplier</a>
                                 <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink">
                                     <li>
-                                        <a class="dropdown-item" href="{% url 'add-supplier' %}">Add supplier</a>
+                                        <a class="dropdown-item" href="{% url 'add-supplier' %}">Add Supplier</a>
                                     </li>
                                     <li>
-                                        <a class="dropdown-item" href="{% url 'suppliers-list' %}">Suppliers list</a>
+                                        <a class="dropdown-item" href="{% url 'suppliers-list' %}">Suppliers List</a>
                                     </li>
                                 </ul>
                             </li>
                             
                             <!-- Logout -->
-                            <li class="nav-item dropdown">
+                            <li class="nav-item dropdown me-4">
                                 <a class="nav-link text-white dropdown-toggle" href="#" id="navbarDarkDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">{{user.username|capfirst}}</a>
                                 <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink">
                                     <li>
