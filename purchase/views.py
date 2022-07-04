@@ -16,8 +16,9 @@ def purchase_stock(request):
             supplier = form.cleaned_data['supplier']
             quantity = form.cleaned_data['quantity']
             price = form.cleaned_data['price']
+            total_price = quantity * price
 
-            model = NewStockModel(sku=sku, supplier=supplier, quantity=quantity, price=price)
+            model = NewStockModel(sku=sku, supplier=supplier, quantity=quantity, price=price, total_price=total_price)
             model.save()
 
             inventory = get_object_or_404(InventoryModel, sku=sku)
