@@ -41,11 +41,18 @@ def sign_up(request):
         password = request.POST['password']
 
         existing_user = False
+        invalid_request = False
         new_user = False
         if User.objects.filter(username=username):
             existing_user = True
             return render(request, 'inventory/signup_page.html', {
                 'existing_user': existing_user
+            })
+
+        elif username == '' or password == '':
+            invalid_request = True
+            return render(request, 'inventory/signup_page.html', {
+                'invalid_request': invalid_request
             })
 
         else:

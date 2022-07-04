@@ -7,12 +7,13 @@
 {% block content %}
     <div class='container'>
         <h3 class='mt-4 mb-4'> Welcome {{user.username|capfirst}} </h3>
-        <table class="table table-hover">
+        <table class="table table-hover table-bordered text-center">
             <thead>
               <tr>
                 <th scope="col">Sl No</th>
                 <th scope="col">SKU</th>
                 <th scope="col">Available</th>
+                <th scope="col">Options</th>
               </tr>
             </thead>
             <tbody>
@@ -21,8 +22,8 @@
                         <td>{{ forloop.counter }}</td>
                         <td>{{ row.sku }}</td>
                         <td>{{ row.available_quantity }}</td>
-                        <td><a class='btn btn-dark' href={% url 'edit-stock' row.sku %}>Edit</a></td>
-                        <td><a class='btn btn-danger' href={% url 'delete-stock' row.sku %}>Delete</a></td>
+                        <td><a class='btn btn-dark me-4' href={% url 'edit-stock' row.sku %}>Edit</a>
+                            <a class='btn btn-danger' href={% url 'delete-stock' row.sku %}>Delete</a></td>
                     </tr>
                 {% endfor %}
             </tbody>

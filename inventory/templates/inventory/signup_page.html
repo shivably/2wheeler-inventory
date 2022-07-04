@@ -12,13 +12,13 @@
     <form action="" method="POST">
         {% csrf_token %}
         <div class="mb-3">
-            <label for="exampleInputUsername" class="form-label">Username</label>
-            <input type="user" class="form-control" id="exampleInputUsername" name="username">
+            <label for="InputUsername" class="form-label">Username</label>
+            <input type="user" class="form-control" id="InputUsername" name="username">
         </div>
 
         <div class="mb-3">
-            <label for="exampleInputPassword1" class="form-label">Password</label>
-            <input type="password" class="form-control" id="exampleInputPassword1" name="password">
+            <label for="InputPassword" class="form-label">Password</label>
+            <input type="password" class="form-control" id="InputPassword" name="password">
         </div>
 
         <div class="position-absolute top-50 start-50 translate-middle">
@@ -28,7 +28,11 @@
 
         {% if existing_user %}
             <div class="alert alert-danger mt-5" role="alert">
-                Username already exists. Please choose a different one.
+                <h2>Username already exists. Please choose a different one.</h2>
+            </div>
+        {% elif invalid_request %}
+            <div class="alert alert-danger mt-5" role="alert">
+                <h2>Invalid request. Please retry.</h2>
             </div>
         {% elif new_user %}
             <div class="alert alert-success mt-5" role="alert">
