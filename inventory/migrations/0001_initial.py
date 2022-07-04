@@ -12,13 +12,11 @@ class Migration(migrations.Migration):
 
     operations = [
         migrations.CreateModel(
-            name='SupplierModel',
+            name='InventoryModel',
             fields=[
                 ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('name', models.CharField(max_length=100)),
-                ('contact', models.IntegerField()),
-                ('email', models.EmailField(max_length=254)),
-                ('address', models.TextField()),
+                ('sku', models.CharField(max_length=100)),
+                ('available_quantity', models.IntegerField()),
             ],
         ),
     ]
