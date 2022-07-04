@@ -6,7 +6,7 @@
 
 {% block content %}
     <div class='container'>
-        <table class="table">
+        <table class="table mt-4">
             <thead>
               <tr>
                 <th scope="col">Order No</th>
@@ -26,8 +26,7 @@
                         <td>{{ purchase.quantity }}</td>
                         <td>{{ purchase.price }}</td>
                         <td>{{ purchase.date }}</td>
-                        <td><a class='btn btn-dark' href={% url 'edit-purchase' purchase.sku %}>Edit</a></td>
-                        <td><a class='btn btn-danger' href={% url 'delete-purchase' purchase.sku %}>Delete</a></td>
+                        <td><a class='btn btn-danger' href={% url 'delete-purchase' purchase.order_no %}>Delete</a></td>
                     </tr>
                 {% endfor %}
             </tbody>

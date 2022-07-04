@@ -29,5 +29,5 @@ class NewStockForm(forms.ModelForm):
             'sku': 'SKU',
             'supplier': 'Supplier',
             'quantity': 'Quantity',
-            'price': 'Price' 
+            'price': 'Price Per Quantity (Rs.)' 
             }
