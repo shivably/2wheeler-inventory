@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+
+{% block title %}
+    New Sale
+{% endblock %}
+
+{% block content %}
+    <div class='container'>
+        {% csrf_token %}
+        {% crispy form %}
+
+        {% if not_available %}
+            <div class="alert alert-danger mt-5" role="alert">
+                <h2>Your requested quantity not available in inventory.</h2>
+            </div>
+        {% endif %}
+    </div>
+{% endblock %}
