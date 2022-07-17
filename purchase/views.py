@@ -1,6 +1,7 @@
 from django.http import HttpResponseRedirect
 from django.shortcuts import render, get_object_or_404
 from django.urls import reverse
+from django.contrib.auth.decorators import login_required
 
 from .forms import NewStockForm
 from .models import NewStockModel
@@ -8,6 +9,7 @@ from inventory.models import InventoryModel
 # Create your views here.
 
 
+@login_required
 def purchase_stock(request):
     if request.method == 'POST':
         form = NewStockForm(request.POST)
@@ -31,6 +33,7 @@ def purchase_stock(request):
         })
 
 
+@login_required
 def purchase_history(request):
     purchases = NewStockModel.objects.all()
     return render(request, 'purchase/purchase_history.html', {
@@ -38,6 +41,7 @@ def purchase_history(request):
     })
 
 
+@login_required
 def delete_purchase(request, order_no):
     model = NewStockModel.objects.get(order_no=order_no)
     model.delete()

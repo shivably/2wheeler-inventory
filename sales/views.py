@@ -1,12 +1,14 @@
 from django.urls import reverse
 from django.http import HttpResponseRedirect
 from django.shortcuts import render, get_object_or_404
+from django.contrib.auth.decorators import login_required
 
 from .forms import SalesFormset, SalesFormHelper, CustomerForm
 from .models import SalesModel, CustomerModel
 from inventory.models import InventoryModel
 # Create your views here.
 
+@login_required
 def new_sale(request):
     if request.method == 'POST':
         customer_form = CustomerForm(request.POST)
@@ -60,6 +62,7 @@ def new_sale(request):
         })
 
 
+@login_required
 def sales_history(request):
     model = SalesModel.objects.all()
     return render(request, 'sales/sales_history.html', {
@@ -67,6 +70,7 @@ def sales_history(request):
     })
 
 
+@login_required
 def delete_sale(request, order_no):
     model = SalesModel.objects.get(order_no=order_no)
     model.delete()

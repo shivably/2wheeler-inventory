@@ -1,12 +1,14 @@
 from django.http import HttpResponseRedirect
 from django.shortcuts import render
 from django.urls import reverse
+from django.contrib.auth.decorators import login_required
 
 from .forms import SupplierForm, SupplierEditForm
 from .models import SupplierModel
 
 # Create your views here.
 
+@login_required
 def add_supplier(request):
     if request.method == 'POST':
         form = SupplierForm(request.POST)
@@ -25,6 +27,7 @@ def add_supplier(request):
         })
 
 
+@login_required
 def suppliers_list(request):
     suppliers = SupplierModel.objects.all()
     return render(request, 'supplier/suppliers_list.html', {
@@ -32,6 +35,7 @@ def suppliers_list(request):
     })
 
 
+@login_required
 def edit_supplier(request, name):
     model = SupplierModel.objects.get(name=name)
     if request.method == 'POST':
@@ -57,6 +61,8 @@ def edit_supplier(request, name):
             'name': name
         })
 
+
+@login_required
 def delete_supplier(request, name):
     model = SupplierModel.objects.get(name=name)
     model.delete()
