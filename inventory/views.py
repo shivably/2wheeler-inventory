@@ -76,6 +76,7 @@ def index(request):
     })
 
 
+@login_required
 def add_stock(request):
     if request.method == 'POST':
         form = InventoryForm(request.POST)
@@ -97,6 +98,7 @@ def add_stock(request):
         })
 
 
+@login_required
 def edit_stock(request, sku):
     model = InventoryModel.objects.get(sku=sku)
     if request.method == 'POST':
@@ -120,6 +122,7 @@ def edit_stock(request, sku):
             'sku': sku
         })
 
+@login_required
 def delete_stock(request, sku):
     model = InventoryModel.objects.get(sku=sku)
     model.delete()

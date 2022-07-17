@@ -21,7 +21,6 @@ class CustomerForm(forms.ModelForm):
         },
         
 
-
 class SalesForm(forms.ModelForm):
     def __init__(self, *args, **kwargs):
         super(SalesForm, self).__init__(*args, **kwargs)
@@ -47,7 +46,6 @@ class SalesFormHelper(FormHelper):
                 Column('sku', css_class='mt-4 col '),
                 Column('quantity', css_class='mt-4 col'),
                 Column('price', css_class='mt-4 col'),
-                # css_class='row'
             ),
         Button('button', 'Add more', css_class='mt-2 btn btn-dark', css_id='add-more'),
         Button('button', 'Remove', css_class='ms-3 mt-2 btn btn-danger', css_id='remove'),
