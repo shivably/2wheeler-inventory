@@ -15,16 +15,17 @@ class InventoryForm(forms.ModelForm):
         self.helper.add_input(Button('cancel', 'Cancel', onclick="location.href = '/index/'", css_class='ms-3 mt-2 btn btn-dark'))
         self.helper.layout = Layout(
             Row(
-                Column('sku', css_class='mt-4'),
-                Column('available_quantity', css_class='mt-4'),
+                Column('name', css_class='mt-4'),
+                Column('type', css_class='mt-4'),
             )
         )
 
     class Meta:
         model = InventoryModel
         fields = '__all__'
+        exclude = ['available_quantity']
         labels = {
-            'sku': 'SKU',
-            'available_quantity': 'Quantity'
-            }
+            'name': 'Name',
+            'type': 'Type'
+        }
             

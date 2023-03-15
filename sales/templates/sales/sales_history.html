@@ -12,10 +12,10 @@
               <tr>
                 <th scope="col">Order No</th>
                 <th scope="col">Customer</th>
-                <th scope="col">SKU</th>
-                <th scope="col">Quantity</th>
-                <th scope="col">Price Per Stock</th>
-                <th scope="col">Total Price</th>
+                <th scope="col">Model</th>
+                <th scope="col">Advance</th>
+                <th scope="col">Deal Price</th>
+                <th scope="col">Final Price</th>
                 <th scope="col">Date</th>
                 <th scope="col">Options</th>
               </tr>
@@ -25,10 +25,10 @@
                     <tr>
                         <td>{{ row.order_no }}</td>
                         <td>{{ row.customer }}</td>
-                        <td>{{ row.sku }}</td>
-                        <td>{{ row.quantity }}</td>
-                        <td>{{ row.price }}</td>
-                        <td>{{ row.total_price }}</td>
+                        <td>{{ row.stock }}</td>
+                        <td>{{ row.advance }}</td>
+                        <td>{{ row.deal_price }}</td>
+                        <td>{{ row.final_price }}</td>
                         <td>{{ row.date }}</td>
                         <td><a class='btn btn-danger' href={% url 'delete-sale' row.order_no %}>Delete</a></td>
                     </tr>

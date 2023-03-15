@@ -28,12 +28,14 @@ class SalesForm(forms.ModelForm):
 
     class Meta:
         model = SalesModel
-        exclude = ['customer', 'order_no', 'date', 'total_price']
+        exclude = ['customer', 'sku', 'order_no', 'date', 'final_price']
         labels = {
-            'sku': 'SKU',
-            'quantity': 'Quantity',
-            'price': 'Price Per Quantity (Rs.)'
-            }
+            'stock': 'Stock',
+            'deal_price': 'Price',
+            'advance': 'Advance',
+            'delivered': 'Delivered',
+            'test_drive_taken': 'Test Drive'
+        }
 
 SalesFormset = modelformset_factory(SalesModel, form=SalesForm)
 
@@ -43,12 +45,12 @@ class SalesFormHelper(FormHelper):
         super().__init__(*args, **kwargs)
         self.layout = Layout(
             Row(
-                Column('sku', css_class='mt-4 col '),
-                Column('quantity', css_class='mt-4 col'),
-                Column('price', css_class='mt-4 col'),
+                Column('stock', css_class='mt-4 col'),
+                Column('advance', css_class='mt-4 col'),
+                Column('deal_price', css_class='mt-4 col'),
             ),
-        Button('button', 'Add more', css_class='mt-2 btn btn-dark', css_id='add-more'),
-        Button('button', 'Remove', css_class='ms-3 mt-2 btn btn-danger', css_id='remove'),
+        # Button('button', 'Add more', css_class='mt-2 btn btn-dark', css_id='add-more'),
+        # Button('button', 'Remove', css_class='ms-3 mt-2 btn btn-danger', css_id='remove'),
         Submit('submit', 'Save', css_class='ms-3 mt-2 btn btn-dark'),
         Button('cancel', 'Cancel', onclick="location.href = '/sales/sales-history/'", css_class='ms-3 mt-2 btn btn-dark'),
         )

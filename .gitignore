@@ -1,0 +1,6 @@
+venv/
+.idea/
+__pycache__/
+inventory/__pycache__/
+inventory_management/__pycache__/
+*.pyc

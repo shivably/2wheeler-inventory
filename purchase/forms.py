@@ -17,17 +17,29 @@ class NewStockForm(forms.ModelForm):
                 Row(
                     Column('sku', css_class='mt-4'),
                     Column('supplier', css_class='mt-4'),
-                    Column('quantity', css_class='mt-4'),
-                    Column('price', css_class='mt-4'),
+                    Column('number', css_class='mt-4'),
+                    Column('chassis_number', css_class='mt-4'),
+                    Column('engine_number', css_class='mt-4'),
+                    Column('registration_date', css_class='mt-4'),
+                    Column('manufacturing_date', css_class='mt-4'),
+                    Column('purchase_price', css_class='mt-4'),
+                    Column('noc', css_class='mt-4'),
+                    Column('noc_date', css_class='mt-4'),
                 )
             )
 
     class Meta:
         model = NewStockModel
-        exclude = ['order_no', 'date', 'total_price']
+        exclude = ['order_no', 'date', 'sale_price', 'quantity']
         labels = {
             'sku': 'SKU',
             'supplier': 'Supplier',
-            'quantity': 'Quantity',
-            'price': 'Price Per Quantity (Rs.)' 
-            }
+            'number': 'Reg.No',
+            'chassis_number': 'Ch.No',
+            'engine_number': 'Eng.No',
+            'registration_date': 'Registration',
+            'manufacturing_date': 'Manufacturing',
+            'purchase_price': 'Price',
+            'noc': 'NOC',
+            'noc_date': 'NOC Date' 
+        }

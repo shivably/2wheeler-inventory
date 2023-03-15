@@ -20,10 +20,10 @@
                 {% for row in model %}
                     <tr>
                         <td>{{ forloop.counter }}</td>
-                        <td>{{ row.sku }}</td>
+                        <td>{{ row.name }}</td>
                         <td>{{ row.available_quantity }}</td>
-                        <td><a class='btn btn-dark me-4' href={% url 'edit-stock' row.sku %}>Edit</a>
-                            <a class='btn btn-danger' href={% url 'delete-stock' row.sku %}>Delete</a></td>
+                        <td><a class='btn btn-dark me-4' href={% url 'edit-stock' row.name %}>Edit</a>
+                            <a class='btn btn-danger' href={% url 'delete-stock' row.name %}>Delete</a></td>
                     </tr>
                 {% endfor %}
             </tbody>
