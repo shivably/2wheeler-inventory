@@ -4,3 +4,4 @@ __pycache__/
 inventory/__pycache__/
 inventory_management/__pycache__/
 *.pyc
+db.sqlite3
